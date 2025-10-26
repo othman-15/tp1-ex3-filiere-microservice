@@ -137,7 +137,7 @@ public class FiliereController {
         return ResponseEntity.ok(filiereService.updateFiliere(id,requestFiliereDto));
     }
     @Operation(
-            summary = " supprimer compte par Id",
+            summary = " supprimer filiere par Id",
             parameters = @Parameter(name = "id", required = true),
             responses = {
                     @ApiResponse(responseCode = "200", description = "bien supprimer"),
