@@ -14,6 +14,7 @@ import ma.angu.filieremicroservice.dtos.RequestFiliereDto;
 import ma.angu.filieremicroservice.dtos.ResponseFiliereDto;
 import ma.angu.filieremicroservice.services.FiliereService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,6 +51,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<ResponseFiliereDto>> getAllFiliere() {
         return ResponseEntity.ok(filiereService.getAllFilieres());
@@ -71,6 +73,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @GetMapping("/{id}")
     public ResponseEntity<ResponseFiliereDto>  getFiliereById(@PathVariable("id") Long id) {
 
@@ -100,6 +103,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @PostMapping
     public ResponseEntity<ResponseFiliereDto> createFiliere(@RequestBody RequestFiliereDto requestFiliereDto) {
 
@@ -130,6 +134,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<ResponseFiliereDto> updateFiliere(@PathVariable Long id, @RequestBody RequestFiliereDto requestFiliereDto) {
 
@@ -145,6 +150,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
+    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     @DeleteMapping("{id}")
     public ResponseEntity DeleteFiliere(@PathVariable Long id) {
 
