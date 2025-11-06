@@ -51,7 +51,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public ResponseEntity<List<ResponseFiliereDto>> getAllFiliere() {
         return ResponseEntity.ok(filiereService.getAllFilieres());
@@ -73,7 +73,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/{id}")
     public ResponseEntity<ResponseFiliereDto>  getFiliereById(@PathVariable("id") Long id) {
 
@@ -103,7 +103,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping
     public ResponseEntity<ResponseFiliereDto> createFiliere(@RequestBody RequestFiliereDto requestFiliereDto) {
 
@@ -134,7 +134,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<ResponseFiliereDto> updateFiliere(@PathVariable Long id, @RequestBody RequestFiliereDto requestFiliereDto) {
 
@@ -150,7 +150,7 @@ public class FiliereController {
                     @ApiResponse(responseCode = "5xx",description = "erreur serveur"),
             }
     )
-    @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("{id}")
     public ResponseEntity DeleteFiliere(@PathVariable Long id) {
 
